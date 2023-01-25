@@ -1,0 +1,19 @@
+{% extends 'catalog/base.html' %}
+{% load mediapath from temp %}
+
+{% block content %}
+
+    {% for object in object_list %}
+            <div class="card" style="width: 19rem;">
+                <img src='{% mediapath object.image %}' class="card-img-top" alt="" border=1 height=220 width=300>
+                <div class="card-body">
+                    <h5 class="card-title">{{object.product_name}}</h5>
+                    <h6 class="card-title">{{object.price}} тг </h6>
+                    <h7 class="card-title">Дата добавления:{{object.date_create|date}}</h7>
+                    <p class="card-text">{{ object.description}}</p>
+                    <a href="#" class="btn btn-primary">Добавить в корзину</a>
+                </div>
+            </div>
+    {% endfor %}
+
+{% endblock %}
